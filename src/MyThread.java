@@ -13,7 +13,7 @@ public class MyThread implements Runnable{
     public void run() {
         for (Integer integer : list) {
             if (integer % divider == 0) {
-                System.out.println(integer / divider);
+                System.out.println(integer);
             }
         }
     }

@@ -38,10 +38,6 @@ public class Main {
                     numbers.add(list.get(i).get(j));
                 }
             }
-            for (int i = 0; i < numbers.size(); i++)
-            {
-                System.out.println(numbers.get(i));
-            }
             System.out.println();
             try {
                 System.out.print("\n" + "chunks>");
@@ -52,8 +48,6 @@ public class Main {
                 List<Integer> tempList;
                 int startingInt = 0;
                 int numbersInChunk = numbers.size()/chunks;
-                System.out.println(numbersInChunk);
-                System.out.println("a");
                 MyThread myThread;
                 for (int i = 0; i < chunks; i++)
                 {
@@ -61,15 +55,13 @@ public class Main {
 
                     for(int j = startingInt; j < startingInt+numbersInChunk;j++)
                     {
-                        tempList.add(numbers.get(i));
+                        tempList.add(numbers.get(j));
                     }
                     startingInt+=numbersInChunk;
                     myThread = new MyThread((ArrayList<Integer>) tempList, divider);
                     threadPoolExecutor.execute(myThread);
                 }
-
-
-
+                threadPoolExecutor.shutdown();
             }catch (NumberFormatException exc) {
                 System.out.println("Illegal Input!");
             }
