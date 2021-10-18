@@ -19,7 +19,7 @@ public class JavaStreamsTester {
 
     private static String getMergedString(List<String> strings, String seperator)
     {
-        return strings.stream().filter(value -> value.length()!=0).map(s -> {
+        return strings.stream().map(s -> {
             if(strings.get(0).equals(s))
             {
                 return s;
@@ -67,7 +67,7 @@ public class JavaStreamsTester {
         System.out.println("getCountLength3: " + (getCountLength3(stringList)==2));
         List<String> tempList = deleteEmptyStrings(stringList);
         System.out.println("deleteEmptyStrings: " + (tempList.size()==3));
-        System.out.println("getMergedString: " + (getMergedString(stringList,":").equals("Hallo:123:Hal")));
+        System.out.println("getMergedString: " + (getMergedString(stringList,":").equals("Hallo::123:Hal:")));
 
         List<Integer> intList = new ArrayList<>();
         intList.add(1);
